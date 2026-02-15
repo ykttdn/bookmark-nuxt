@@ -44,7 +44,7 @@ const handleSubmit = async () => {
 
   isSubmitting.value = true
   try {
-    $fetch('http://localhost:8000/api/sign_up', {
+    await $fetch('http://localhost:8000/api/sign_up', {
       method: 'POST',
       body: formData.value,
     })
