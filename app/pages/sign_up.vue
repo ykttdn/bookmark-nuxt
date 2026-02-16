@@ -49,6 +49,7 @@ const handleSubmit = async () => {
       body: formData.value,
     })
     alert('Sign up successful!')
+    await navigateTo('/')
   } catch (error) {
     if (error instanceof FetchError) {
       alert(`Sign up failed: ${error.data.errors.join('. ')}`)
