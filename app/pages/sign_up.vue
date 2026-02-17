@@ -44,11 +44,12 @@ const handleSubmit = async () => {
 
   isSubmitting.value = true
   try {
-    await $fetch('http://localhost:8000/api/sign_up', {
+    await $fetch('/api/sign_up', {
       method: 'POST',
       body: formData.value,
     })
     alert('Sign up successful!')
+    await navigateTo('/')
   } catch (error) {
     if (error instanceof FetchError) {
       alert(`Sign up failed: ${error.data.errors.join('. ')}`)
