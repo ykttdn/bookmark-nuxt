@@ -4,6 +4,7 @@ import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
 import { defineConfig } from "eslint/config";
 import { includeIgnoreFile } from "@eslint/compat";
+import stylistic from '@stylistic/eslint-plugin'
 import { fileURLToPath } from "node:url";
 
 const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
@@ -16,6 +17,7 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
   },
+  stylistic.configs.customize({ braceStyle: '1tbs' }),
   tseslint.configs.recommended,
   pluginVue.configs["flat/recommended-error"],
   {
