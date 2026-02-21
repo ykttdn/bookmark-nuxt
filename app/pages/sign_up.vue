@@ -5,7 +5,7 @@ const formData = ref({
   name: '',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
 })
 
 const errors = ref<Record<string, string>>({})
@@ -77,8 +77,13 @@ const handleSubmit = async () => {
             placeholder="Yamada Taro"
             class="form-input"
             :class="{ 'input-error': errors.name }"
-          />
-          <p v-if="errors.name" class="error-message">{{ errors.name }}</p>
+          >
+          <p
+            v-if="errors.name"
+            class="error-message"
+          >
+            {{ errors.name }}
+          </p>
         </div>
 
         <div class="form-group">
@@ -90,8 +95,13 @@ const handleSubmit = async () => {
             placeholder="example@example.com"
             class="form-input"
             :class="{ 'input-error': errors.email }"
-          />
-          <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
+          >
+          <p
+            v-if="errors.email"
+            class="error-message"
+          >
+            {{ errors.email }}
+          </p>
         </div>
 
         <div class="form-group">
@@ -103,8 +113,13 @@ const handleSubmit = async () => {
             placeholder="6 characters minimum"
             class="form-input"
             :class="{ 'input-error': errors.password }"
-          />
-          <p v-if="errors.password" class="error-message">{{ errors.password }}</p>
+          >
+          <p
+            v-if="errors.password"
+            class="error-message"
+          >
+            {{ errors.password }}
+          </p>
         </div>
 
         <div class="form-group">
@@ -116,8 +131,13 @@ const handleSubmit = async () => {
             placeholder="Confirm your password"
             class="form-input"
             :class="{ 'input-error': errors.confirmPassword }"
-          />
-          <p v-if="errors.confirmPassword" class="error-message">{{ errors.confirmPassword }}</p>
+          >
+          <p
+            v-if="errors.confirmPassword"
+            class="error-message"
+          >
+            {{ errors.confirmPassword }}
+          </p>
         </div>
 
         <button
