@@ -5,6 +5,7 @@ import pluginVue from "eslint-plugin-vue";
 import { defineConfig } from "eslint/config";
 import { includeIgnoreFile } from "@eslint/compat";
 import stylistic from '@stylistic/eslint-plugin'
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import { fileURLToPath } from "node:url";
 
 const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
@@ -20,6 +21,13 @@ export default defineConfig([
   stylistic.configs.customize({ braceStyle: '1tbs' }),
   tseslint.configs.recommended,
   pluginVue.configs["flat/recommended-error"],
+  {
+    plugins: { "simple-import-sort": simpleImportSort },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+    },
+  },
   {
     files: ["**/*.vue"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
