@@ -5,15 +5,7 @@ type User = {
   }
 }
 
-const { data } = await useFetch<User>('/api/users/me', {
-  onResponseError({ response, error }) {
-    console.error(error)
-
-    if (response.status === 401) {
-      console.log('Unauthorized')
-    }
-  },
-})
+const { data } = await useFetch<User>('/api/users/me')
 
 const sign_out = async () => {
   try {
