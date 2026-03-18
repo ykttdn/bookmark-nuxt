@@ -5,15 +5,19 @@ type User = {
   }
 }
 
-const { data } = await useFetch<User>('/api/users/me', {
-  onResponseError({ response, error }) {
-    console.error(error)
+const { data } = await useFetch<User>('/api/users/me')
 
-    if (response.status === 401) {
-      console.log('Unauthorized')
-    }
-  },
-})
+const sign_out = async () => {
+  try {
+    await $fetch('/api/sign_out', {
+      method: 'DELETE',
+    })
+    alert('Sign out successful!')
+    await navigateTo('/sign_in')
+  } catch {
+    alert('An error occurred during sign out.')
+  }
+}
 </script>
 
 <template>
@@ -21,4 +25,7 @@ const { data } = await useFetch<User>('/api/users/me', {
   <p v-if="data">
     Welcome, {{ data.user.email }}!
   </p>
+  <button @click="sign_out">
+    Sign Out
+  </button>
 </template>
