@@ -16,7 +16,10 @@ const handleSubmit = async () => {
       body: formData.value,
     })
     alert('Sign in successful!')
-    await navigateTo('/')
+
+    const route = useRoute()
+    const to = (route.query.redirect as string) || '/'
+    await navigateTo(to)
   } catch (error) {
     if (error instanceof FetchError) {
       alert(`Sign in failed: ${error.data.errors.join('. ')}`)
