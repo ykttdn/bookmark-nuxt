@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { FetchError } from 'ofetch'
 
+definePageMeta({
+  middleware: 'visitor-only',
+})
+
 const formData = ref({
   name: '',
   email: '',
