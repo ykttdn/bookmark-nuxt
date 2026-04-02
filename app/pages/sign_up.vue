@@ -152,6 +152,13 @@ const handleSubmit = async () => {
           {{ isSubmitting ? 'Processing...' : 'Sign up' }}
         </button>
       </form>
+
+      <p class="login-link">
+        Already have an account?
+        <NuxtLink to="/sign_in">
+          Sign in
+        </NuxtLink>
+      </p>
     </div>
   </div>
 </template>
